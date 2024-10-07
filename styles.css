@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Cowboy';
+    src: url('drover.woff2') format('woff2'),
+        url('drover.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    width: 60%;
+    margin: auto;
+    color: #333333;
+    background-color: #ede8e0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    margin-top: 50px;
+}
+
+header div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 5rem;
+    margin-top: -10px;
+    font-family: 'Cowboy';
+}
+
+header h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+header hr {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+body article{
+    word-spacing: 0.5rem;
+    line-height: 20px;
+}
+.small {
+    font-size: small;
+}
+
+
+#date {
+    text-align: right;
+}
+
+.brief {
+    float: right;
+    width: 28%;
+}
+
+.first-img {
+    margin-left: 10%;
+    width: 50%;
+}
+
+.second-img {
+    float: left;
+    padding-right: 5%;
+}
