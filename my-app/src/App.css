@@ -1,42 +1,73 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@font-face {
+    font-family: 'Cowboy';
+    src: url('drover.woff2') format('woff2'),
+        url('drover.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+    width: 60%;
+    margin: auto;
+    color: #333333;
+    background-color: #ede8e0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#header {
+    margin-top: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#header div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
 }
 
-.card {
-  padding: 2em;
+#header h1 {
+    text-align: center;
+    font-size: 5rem;
+    margin-top: -10px;
+    font-family: 'Cowboy';
 }
 
-.read-the-docs {
-  color: #888;
+#header h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#header hr {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.article{
+    word-spacing: 0.5rem;
+    line-height: 20px;
+}
+.small {
+    font-size: small;
+}
+
+
+#date {
+    text-align: right;
+}
+
+.brief {
+    float: right;
+    width: 28%;
+}
+
+.first-img {
+    margin-left: 10%;
+    width: 50%;
+}
+
+.second-img {
+    float: left;
+    padding-right: 5%;
 }
