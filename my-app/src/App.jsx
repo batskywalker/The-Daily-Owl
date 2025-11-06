@@ -3,32 +3,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import warPhoto from '../../Old/wars.png'
 import lecternPhoto from '../../Old/lectern.png'
+import Header from './components/Header.jsx'
 
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
-        <div id="header">
-            <div>
-                <p class="moto">News on the fly</p>
-                <p class="date">10/7/24</p>
-            </div>
-            
-            <h1>THE DAILY OWL</h1>
-            
-            <h3>Top News Stories from 2024</h3>
-            
-        </div>
+        <Header />
 
         <div id="body">
             <img src={lecternPhoto} class="first-img" />
             <div class="brief small article">
-                <p>Candidates were presented with several questions on the following topics:
-                </p>
+                <p>Candidates were presented with several questions on the following topics: </p>
 
                 <ul>
                     <li>How they plan to keep servers active.</li>
