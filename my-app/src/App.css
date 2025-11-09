@@ -8,7 +8,6 @@
 }
 
 :root {
-    width: 70%;
     max-width: 1100px;
     margin: auto;
     color: #333333;
@@ -46,6 +45,7 @@ h2 {
 h3 {
     text-align: center;
     font-size: 1.2rem;
+    font-weight: 520;
 }
 
 img {
@@ -75,4 +75,23 @@ img {
 }
 #date-block p {
     margin: 0;
+}
+
+#float-quote {
+    float: right;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1;
+    position: relative;
+    right: 0;
+    left: 20%;
+    background-color: #F0E5D7;
+    width: 25%;
+    border: solid 2px #333333;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#right-side {
+    display: flex;
+    flex-direction: column;
 }
