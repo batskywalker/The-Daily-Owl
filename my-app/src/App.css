@@ -8,7 +8,7 @@
 }
 
 :root {
-    max-width: 1100px;
+    width: 1100px;
     margin: auto;
     color: #333333;
     background-color: #F0E5D7;
@@ -16,7 +16,24 @@
 }
 
 #header {
-    margin-top: 40px;
+    width: 913px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: solid 4px #333333;
+    border-bottom: solid 4px #333333;
+    padding-top: 0;
+}
+#header p {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.inside {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-top: solid 2px #333333;
+    border-bottom: solid 2px #333333;
 }
 
 .moto {
@@ -32,9 +49,10 @@ p {
 
 h1 {
     text-align: center;
-    font-size: 5rem;
+    font-size: 7rem;
     font-family: 'Cowboy';
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 h2 {
@@ -54,16 +72,21 @@ img {
 }
 
 #breaking-header {
-    width: 83%;
-    margin: auto;
+    border-bottom: solid 4px #333333;
+    width: 913px;
+    margin: auto
 }
-#breaking-header div {
+#breaking-header div.inside {
+    width: 913px;
+    margin-bottom: 4px;
+}
+#breaking-header div.inside div {
     display: flex;
     justify-content: space-between;
     font-size: 0.9rem;
-    margin-top: 20px;
+    border-bottom: solid 2px #333333;
 }
-#breaking-header h1 {
+#breaking-header div.inside h1 {
     text-align: center;
     font-size: 6rem;
     margin-top: 0;
@@ -72,9 +95,14 @@ img {
     display: flex;
     align-items: end;;
     flex-direction: column;
+    border-bottom: none !important;
 }
 #date-block p {
     margin: 0;
+}
+
+div.breaking {
+    border-top: none;
 }
 
 #float-quote {
@@ -84,12 +112,13 @@ img {
     line-height: 1;
     position: relative;
     right: 0;
-    left: 20%;
+    left: 220px;
     background-color: #F0E5D7;
-    width: 25%;
+    width: 275px;
     border: solid 2px #333333;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    margin-left: -175px;
 }
 #right-side {
     display: flex;
