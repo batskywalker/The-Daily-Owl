@@ -2,6 +2,7 @@ import {useState} from 'react';
 import '../App.css';
 
 function Header() {
+
     return (
         <div id="header">
             <div class="inside">
