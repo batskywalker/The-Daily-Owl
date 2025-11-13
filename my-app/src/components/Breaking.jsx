@@ -1,16 +1,16 @@
 import {useState} from 'react';
 import '../App.css';
 
-function Breaking() {
+function Breaking(props) {
     return (
         <div id="breaking-header">
             <div class="inside breaking">
                 <div>
-                    <p>VOL. 19, NO.190</p>
+                    <p>{props.volume}</p>
                     <p>DAILYOWL.COM</p>
                     <div id="date-block">
-                        <p>07 NOVEMBER</p>
-                        <p>2025</p>
+                        <p>{props.day_month}</p>
+                        <p>{props.year}</p>
                     </div>
                     
                 </div>
