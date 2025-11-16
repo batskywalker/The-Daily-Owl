@@ -2,27 +2,20 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header.jsx'
 import Article from './components/Article.jsx'
 import Breaking from './components/Breaking.jsx'
-import {Storage} from '@google-cloud/storage'
 
 import './App.css'
-
-const storage = new Storage();
-
-async function listFiles() {
-  const [files] = await storage.bucket("the-daily-owl-articles").getFiles();
-
-  console.log('Files:');
-    files.forEach(file => {
-      console.log(file.name);
-    });
-}
 
 function App() {
   const [data, setData] = useState();
 
-  listFiles();
-
   useEffect(() => {
+    // Fetch files from backend
+    fetch('http://localhost:3001/api/files')
+      .then(response => response.json())
+      .then(result => console.log('Files:', result.files))
+      .catch(error => console.error('Error fetching files:', error));
+
+    // Fetch article data
     fetch('vol-1.json')
       .then(response => response.json())
       .then(data => setData(data))
@@ -32,8 +25,6 @@ function App() {
   if (!data) {
     return <div>Loading...</div>;
   }
-
-  console.log(data);
 
   return (
     <>
