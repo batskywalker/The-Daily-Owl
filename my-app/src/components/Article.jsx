@@ -1,5 +1,4 @@
-import {useState} from 'react';
-import mikiePhoto from '../assets/mikie.png';
+ import mikiePhoto from '../assets/mikie.png';
 import '../App.css';
 
 function Article(props) {

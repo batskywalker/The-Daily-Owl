@@ -10,7 +10,7 @@
 :root {
     width: 1100px;
     margin: auto;
-    margin-top: 0;
+    margin-top: 50px;
     color: #333333;
     background-color: #F0E5D7;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -97,6 +97,9 @@ img {
     align-items: end;;
     flex-direction: column;
     border-bottom: none !important;
+    justify-content: normal !important;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 #date-block p {
     margin: 0;
