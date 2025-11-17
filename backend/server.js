@@ -4,11 +4,7 @@ const { Storage } = require('@google-cloud/storage');
 
 var gcloud_config = {
     projectId: process.env.GCLOUD_PROJECT_ID,
-    keyFilename: process.env.GCLOUD_KEYFILE_PATH,
-    credentials: {
-        client_email : process.env.GCLOUD_CLIENT_EMAIL,
-        private_key : process.env.GCLOUD_PRIVATE_KEY
-    }
+    keyFilename: process.env.GCLOUD_KEYFILE_PATH
 }
 
 const app = express();
@@ -24,9 +20,11 @@ const storage = new Storage({
 
 app.get('/api/files', async (req, res) => {
   try {
-    const [files] = await storage.bucket('the-daily-owl-articles').getFiles();
+    const [ files ] = await storage.bucket('the-daily-owl-articles').getFiles();
     const fileNames = files.map(file => file.name);
-    res.json({ files: fileNames });
+    console.log(fileNames);
+    const file = await storage.bucket('the-daily-owl-articles').file(fileNames[0]).download();
+    res.json(JSON.parse(file.toString()));
   } catch (error) {
     console.error('Error listing files:', error);
     res.status(500).json({ error: 'Failed to list files' });

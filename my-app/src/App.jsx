@@ -10,28 +10,31 @@ function App() {
 
   useEffect(() => {
     // Fetch files from backend
-    fetch('http://localhost:3001/api/files')
+    fetch('https://24f1h33v-3001.usw2.devtunnels.ms/api/files')
       .then(response => response.json())
-      .then(result => console.log('Files:', result.files))
+      .then(result => setData(result[0]))
       .catch(error => console.error('Error fetching files:', error));
 
     // Fetch article data
-    fetch('vol-1.json')
+    /*fetch('vol-1.json')
       .then(response => response.json())
       .then(data => setData(data))
-      .catch(error => console.error('Error fetching data:', error));
+      .catch(error => console.error('Error fetching data:', error));*/
   }, []);
 
   if (!data) {
     return <div>Loading...</div>;
+  }
+  else {
+    console.log(data);
   }
 
   return (
     <>
       <div id="body">
         <Header />
-        <Breaking volume={data[0].volume} day_month={data[0].day_month} year={data[0].year} />
-        <Article heading={data[0].heading} paragraph_one={data[0].paragraph_one} paragraph_two={data[0].paragraph_two} image={data[0].image} quote_block={data[0].quote_block} />
+        <Breaking volume={data.volume} day_month={data.day_month} year={data.year} />
+        <Article heading={data.heading} paragraph_one={data.paragraph_one} paragraph_two={data.paragraph_two} image={data.image} quote_block={data.quote_block} />
       </div>
     </>
   )
