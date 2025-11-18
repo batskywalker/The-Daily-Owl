@@ -15,7 +15,6 @@ app.use(cors());
 const storage = new Storage({
   projectId: gcloud_config.projectId, // set this
   keyFilename: gcloud_config.keyFilename, // set this
-  credentials: gcloud_config.credentials
 });
 
 app.get('/api/files', async (req, res) => {
@@ -23,7 +22,22 @@ app.get('/api/files', async (req, res) => {
     const [ files ] = await storage.bucket('the-daily-owl-articles').getFiles();
     const fileNames = files.map(file => file.name);
     console.log(fileNames);
-    const file = await storage.bucket('the-daily-owl-articles').file(fileNames[0]).download();
+    const articles = [];
+    while (fileNames[0].includes('articles')) {
+      articles.push(fileNames.shift());
+    }
+
+    console.log(articles)
+
+    const file = await storage.bucket('the-daily-owl-articles').file(articles[articles.length - 1]).download();
+    const content = JSON.parse(file.toString());
+
+    const options = {
+      destination: `../my-app/public/${content[0].image}`
+    }
+
+    await storage.bucket('the-daily-owl-articles').file(`images/${content[0].image}`).download(options);
+
     res.json(JSON.parse(file.toString()));
   } catch (error) {
     console.error('Error listing files:', error);

@@ -1,10 +1,9 @@
- import mikiePhoto from '../assets/mikie.png';
 import '../App.css';
 
 function Article(props) {
     return (
         <div id="article">
-            <img src={mikiePhoto} alt="Mikie in front of town hall" width="539px"/>
+            <img src={props.image} alt="Mikie in front of town hall" width="539px"/>
             <h2>{props.heading}</h2>
 
             <p>{props.paragraph_one}</p>
