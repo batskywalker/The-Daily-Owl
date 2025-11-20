@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header.jsx'
 import Article from './components/Article.jsx'
 import Breaking from './components/Breaking.jsx'
+import List from './components/List.jsx'
 
 import './App.css'
 
@@ -10,23 +11,17 @@ function App() {
 
   useEffect(() => {
     // Fetch files from backend
-    fetch('https://vpb1hm0m-3001.usw2.devtunnels.ms/api/files')
+    fetch('https://vpb1hm0m-5173.usw2.devtunnels.ms/newest')
       .then(response => response.json())
       .then(result => setData(result[0]))
       .catch(error => console.error('Error fetching files:', error));
-
-    // Fetch article data
-    /*fetch('vol-1.json')
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error fetching data:', error));*/
   }, []);
 
   if (!data) {
     return <div>Loading...</div>;
   }
   else {
-    console.log(data);
+    console.log(data)
   }
 
   return (

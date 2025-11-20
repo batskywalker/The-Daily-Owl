@@ -17,20 +17,31 @@ const storage = new Storage({
   keyFilename: gcloud_config.keyFilename, // set this
 });
 
-app.get('/api/files', async (req, res) => {
+async function getArticleNames() {
+  const [ files ] = await storage.bucket('the-daily-owl-articles').getFiles();
+  const fileNames = files.map(file => file.name);
+  console.log(fileNames);
+
+  const articles = [];
+  while (fileNames[0].includes('articles')) {
+    articles.push(fileNames.shift());
+  }
+
+  console.log(articles);
+
+  return articles;
+}
+
+async function getFile(name) {
+  const file = await storage.bucket('the-daily-owl-articles').file(name).download();
+  const content = JSON.parse(file.toString());
+  return content;
+}
+
+app.get('/newest', async (req, res) => {
   try {
-    const [ files ] = await storage.bucket('the-daily-owl-articles').getFiles();
-    const fileNames = files.map(file => file.name);
-    console.log(fileNames);
-    const articles = [];
-    while (fileNames[0].includes('articles')) {
-      articles.push(fileNames.shift());
-    }
-
-    console.log(articles)
-
-    const file = await storage.bucket('the-daily-owl-articles').file(articles[articles.length - 1]).download();
-    const content = JSON.parse(file.toString());
+    const articles = await getArticleNames();
+    const content = await getFile(articles[articles.length - 1]);
 
     const options = {
       destination: `../my-app/public/${content[0].image}`
@@ -38,10 +49,32 @@ app.get('/api/files', async (req, res) => {
 
     await storage.bucket('the-daily-owl-articles').file(`images/${content[0].image}`).download(options);
 
-    res.json(JSON.parse(file.toString()));
+    res.json(content);
   } catch (error) {
     console.error('Error listing files:', error);
     res.status(500).json({ error: 'Failed to list files' });
+  }
+});
+
+app.get('/headers', async (req, res) => {
+  try {
+    const content = {
+      volume: [],
+      headers: [],
+      images: []
+    };
+    
+    content.volume = await getArticleNames();
+
+    for (let i = 1; i < content.volume.length - 1; i++) {
+      const file = await getFile(content.volume[i]);
+      content.headers.push(file.heading);
+      content.images.push(file.image);
+    }
+    res.json(content);
+  } catch (error) {
+    console.error('Error, so like, kys:', error);
+    res.status(500).json({ error: 'haha loser'});
   }
 });
 

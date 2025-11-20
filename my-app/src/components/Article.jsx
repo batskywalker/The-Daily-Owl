@@ -1,4 +1,4 @@
-import '../App.css';
+import './Article.css';
 
 function Article(props) {
     return (

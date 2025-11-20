@@ -1,0 +1,36 @@
+#breaking-header {
+    border-bottom: solid 4px #333333;
+    width: 913px;
+    margin: auto
+}
+.inside {
+    width: 913px;
+    margin-bottom: 4px;
+}
+.inside div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-bottom: solid 2px #333333;
+}
+.inside h1 {
+    text-align: center;
+    font-size: 6rem;
+    margin-top: 0;
+}
+#date-block {
+    display: flex;
+    align-items: end;;
+    flex-direction: column;
+    border-bottom: none !important;
+    justify-content: normal !important;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#date-block p {
+    margin: 0;
+}
+
+div.breaking {
+    border-top: none;
+}

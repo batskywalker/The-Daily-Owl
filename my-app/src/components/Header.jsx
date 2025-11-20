@@ -1,7 +1,6 @@
-import '../App.css';
+import './Header.css';
 
 function Header() {
-
     return (
         <div id="header">
             <div class="inside">

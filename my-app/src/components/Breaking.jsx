@@ -1,4 +1,4 @@
-import '../App.css';
+import './Breaking.css';
 
 function Breaking(props) {
     return (
@@ -6,7 +6,7 @@ function Breaking(props) {
             <div class="inside breaking">
                 <div>
                     <p>{props.volume}</p>
-                    <p>DAILYOWL.COM</p>
+                    <p>DAILY-OWL.COM</p>
                     <div id="date-block">
                         <p>{props.day_month}</p>
                         <p>{props.year}</p>
