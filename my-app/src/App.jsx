@@ -30,6 +30,7 @@ function App() {
         <Header />
         <Breaking volume={data.volume} day_month={data.day_month} year={data.year} />
         <Article heading={data.heading} paragraph_one={data.paragraph_one} paragraph_two={data.paragraph_two} image={data.image} quote_block={data.quote_block} />
+        <List />
       </div>
     </>
   )

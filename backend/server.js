@@ -58,18 +58,18 @@ app.get('/newest', async (req, res) => {
 
 app.get('/headers', async (req, res) => {
   try {
-    const content = {
-      volume: [],
-      headers: [],
-      images: []
-    };
+    const content = [];
     
-    content.volume = await getArticleNames();
+    const volumes = await getArticleNames();
 
-    for (let i = 1; i < content.volume.length - 1; i++) {
-      const file = await getFile(content.volume[i]);
-      content.headers.push(file.heading);
-      content.images.push(file.image);
+    for (let i = 1; i < volumes.length - 1; i++) {
+      const file = await getFile(volumes[i]);
+
+      content.push({
+        volume: volumes[i],
+        heading: file[0].heading,
+        image: file[0].image
+      });
     }
     res.json(content);
   } catch (error) {

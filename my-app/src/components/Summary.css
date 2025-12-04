@@ -1,0 +1,11 @@
+#summary {
+    width: 271px;
+}
+#summary img {
+    float: none;
+}
+
+#summary p {
+    font-size: 1.5rem;
+    text-align: left;
+}

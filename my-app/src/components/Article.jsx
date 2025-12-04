@@ -3,7 +3,7 @@ import './Article.css';
 function Article(props) {
     return (
         <div id="article">
-            <img src={props.image} alt="Mikie in front of town hall" width="539px"/>
+            <img id="article_img" src={props.image} alt="Mikie in front of town hall" width="539px"/>
             <h2>{props.heading}</h2>
 
             <p>{props.paragraph_one}</p>
